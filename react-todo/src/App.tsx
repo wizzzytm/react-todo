@@ -5,13 +5,20 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-
 import Home from "./pages/Home";
+import AddTask from "./pages/AddTask";
 
 function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(<Route index element={<Home />} />)
-  );
+  const router = createBrowserRouter([
+    {
+      index: true,
+      element: <Home />,
+    },
+    {
+      path: "/add",
+      element: <AddTask />,
+    },
+  ]);
   return <RouterProvider router={router} />;
 }
 

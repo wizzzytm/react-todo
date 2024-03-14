@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --secondary-color: #2e3336;
+  --primary-color: #202224;
+  --contrast-color: #7656d6;
+}
+
+@layer base {
+  body {
+    @apply h-full w-full bg-primary-color;
+  }
+  .task {
+    @apply box-border w-full m-4 bg-contrast-color rounded-lg p-8;
+  }
+  .tasksWrapper-lg {
+    @apply p-4 m-8 w-7/12;
+  }
+}
