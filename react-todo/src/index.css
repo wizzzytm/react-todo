@@ -5,7 +5,7 @@
 :root {
   --secondary-color: #2e3336;
   --primary-color: #202224;
-  --contrast-color: #7656d6;
+  --contrast-color: #9c27b0;
 }
 
 @layer base {
@@ -17,5 +17,23 @@
   }
   .tasksWrapper-lg {
     @apply p-4 m-8 w-7/12;
+  }
+  .date-picker fieldset {
+    @apply border-2 border-contrast-color text-contrast-color;
+  }
+  .date-picker:hover fieldset {
+    @apply border-contrast-color !important;
+  }
+  form .input {
+    @apply m-4;
+  }
+  form {
+    box-shadow: 0px 0px 30px 0px var(--contrast-color);
+  }
+  form button {
+    border: 2px solid var(--contrast-color) !important;
+  }
+  .add-title {
+    text-shadow: 3px 3px 4px rgba(170, 170, 170, 1);
   }
 }
