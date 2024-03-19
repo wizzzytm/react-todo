@@ -1,22 +1,28 @@
 import { Fab, TextField } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { theme } from "./Home";
 import { useNavigate } from "react-router-dom";
-
 import React, { useState } from "react";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+
+import { Task } from "../types/Task";
 
 export default function AddTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState<Date | null>(null);
 
-  const { setItem, getItem } = useLocalStorage("value");
+  const handleAddTask = () => {
+    const newTask: Task = {
+      id: crypto.randomUUID(),
+      done: false,
+      title: title,
+      description: description,
+      dueDate: dueDate,
+    };
+  };
 
   function handleChange(e: any) {
     const { name, value } = e.target;
@@ -29,6 +35,7 @@ export default function AddTask() {
       `title: ${title}, description: ${description}, dueDate: ${dueDate}`
     );
   }
+
   const n = useNavigate();
   return (
     <React.StrictMode>
@@ -80,9 +87,6 @@ export default function AddTask() {
               variant="outlined"
               color="secondary"
               size="large"
-              onClick={() => {
-                console.log(getItem()); //TODO finish the useLocalStorage https://www.youtube.com/watch?v=1uiNxQIpcLU
-              }}
               startIcon={<AddIcon />}
             >
               Add
