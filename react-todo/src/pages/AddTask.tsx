@@ -1,15 +1,17 @@
 import { Fab, TextField } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-import { Task } from "../types/Task";
+import { Task } from "../types/User";
+import { UserContext } from "../contexts/UserContext";
 
 export default function AddTask() {
+  const { user, setUser } = useContext(UserContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState<Date | null>(null);
@@ -22,6 +24,11 @@ export default function AddTask() {
       description: description,
       dueDate: dueDate,
     };
+    setUser((prevUser) => ({
+      ...prevUser,
+      tasks: [...prevUser.tasks, newTask],
+    }));
+    n("/");
   };
 
   function handleChange(e: any) {
@@ -87,6 +94,7 @@ export default function AddTask() {
               variant="outlined"
               color="secondary"
               size="large"
+              onClick={handleAddTask}
               startIcon={<AddIcon />}
             >
               Add

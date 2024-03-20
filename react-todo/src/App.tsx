@@ -1,14 +1,15 @@
 import "./App.css";
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import AddTask from "./pages/AddTask";
+import { UserContext } from "./contexts/UserContext";
+
+import { defaultUser } from "./constants/defaultUser";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { User } from "./types/User";
 
 function App() {
+  const [user, setUser] = useLocalStorage<User>(defaultUser, "user");
   const router = createBrowserRouter([
     {
       index: true,
@@ -19,7 +20,11 @@ function App() {
       element: <AddTask />,
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <RouterProvider router={router} />
+    </UserContext.Provider>
+  );
 }
 
 export default App;

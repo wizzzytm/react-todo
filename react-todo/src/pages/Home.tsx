@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { createTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import Tasks from "../components/Tasks";
 
 export const theme = createTheme({
   palette: {
@@ -20,7 +20,9 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="tasksWrapper w-10/12 h-auto flex flex-wrap box-border p-1 m-4 bg-secondary-color rounded-lg  lg:tasksWrapper-lg"></div>
+        <div className="tasksWrapper w-10/12 h-auto flex flex-wrap box-border p-1 m-4 bg-secondary-color rounded-lg  lg:tasksWrapper-lg">
+          <Tasks />
+        </div>
       </div>
 
       <div className="button fixed bottom-0 right-0 box-border p-4 w-fit">

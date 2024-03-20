@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .taskUndone {
+    @apply text-white;
+  }
+  .taskDone {
+    @apply text-black line-through;
+  }
+  .taskDone,
+  .taskUndone {
+    @apply box-border w-full m-4 bg-contrast-color rounded-lg p-8 overflow-hidden;
+  }
+}
