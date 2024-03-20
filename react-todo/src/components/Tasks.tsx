@@ -37,7 +37,7 @@ export default function Tasks() {
             <TaskTitle title={task.title} />
             <TaskDescription description={task.description} />
             <TaskDueDate dueDate={task.dueDate} />
-            <TaskDeleteButton id={task.id} />
+            <TaskDeleteButton id={task.id} /> //FIXME: fix task components
           </div>
         ))
       ) : (
