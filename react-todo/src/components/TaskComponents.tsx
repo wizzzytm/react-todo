@@ -1,17 +1,31 @@
 import { UUID } from "../types/User";
 
-export function TaskCompletionButton(done: boolean, id: UUID) {
+// export function TaskCompletionButton({
+//   done,
+//   id,
+// }: {
+//   done: boolean;
+//   id: UUID;
+// }) {
+//   return <></>;
+// }
+export function TaskDeleteButton({ id }: { id: UUID }) {
   return <></>;
 }
-export function TaskDeleteButton(id: UUID) {
-  return <></>;
+export function TaskTitle({ title }: { title: string }) {
+  return (
+    <>
+      <div>{title}</div>
+    </>
+  );
 }
-export function TaskTitle(title: string) {
-  return <></>;
+export function TaskDescription({ description }: { description?: string }) {
+  return (
+    <>
+      <div>{description}</div>
+    </>
+  );
 }
-export function TaskDescription(description: string | undefined) {
-  return <></>;
-}
-export function TaskDueDate(dueDate: Date | null) {
+export function TaskDueDate({ dueDate }: { dueDate?: Date }) {
   return <></>;
 }

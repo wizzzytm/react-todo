@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
-import styles from "../modules/taskstyle.module.css";
 
 import {
-  TaskCompletionButton,
   TaskTitle,
   TaskDescription,
   TaskDueDate,
   TaskDeleteButton,
 } from "./TaskComponents";
+import TaskContainer from "./TaskContainer";
 
 export default function Tasks() {
   const { user, setUser } = useContext(UserContext);
@@ -29,16 +28,25 @@ export default function Tasks() {
     <>
       {user.tasks.length !== 0 ? (
         user.tasks.map((task) => (
-          <div
-            className={task.done ? styles.taskDone : styles.taskUndone}
-            key={task.id}
-          >
-            <TaskCompletionButton done={task.done} />
-            <TaskTitle title={task.title} />
-            <TaskDescription description={task.description} />
-            <TaskDueDate dueDate={task.dueDate} />
-            <TaskDeleteButton id={task.id} /> //FIXME: fix task components
-          </div>
+          // <div
+          //   className={task.done ? styles.taskDone : styles.taskUndone}
+          //   key={task.id}
+          // >
+          //   <TaskContainer task={task} key={task.id} />
+          //   components
+          // </div>
+          <TaskContainer done={task.done} key={task.id}>
+            {/* <TaskCompletionButton done={task.done} id={task.id} key={task.id} /> */}
+            <TaskDeleteButton id={task.id} key={task.id} />
+            <div
+              style={{ gridArea: "middle" }}
+              className="flex flex-col flex-wrap"
+            >
+              <TaskTitle title={task.title} key={task.id} />
+              <TaskDescription description={task.description} key={task.id} />
+              <TaskDueDate dueDate={task.dueDate} key={task.id} />
+            </div>
+          </TaskContainer>
         ))
       ) : (
         <div className="noTasks">

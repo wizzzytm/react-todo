@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .taskUndone {
+    @apply text-white;
+  }
+  .taskDone {
+    @apply text-black line-through;
+  }
+  .taskDone,
+  .taskUndone {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    padding: 0.5rem;
+    grid-template-areas: "left middle right";
+    box-sizing: border-box;
+    width: 100%;
+    margin: 1rem;
+    background-color: var(--contrast-color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    color: white;
+    overflow: hidden;
+  }
+}
