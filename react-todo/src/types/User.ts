@@ -10,7 +10,7 @@ export interface Task {
   done: boolean;
   title: string;
   description?: string;
-  dueDate?: Date;
+  dueDate?: any;
 }
 
 export interface UserProps {

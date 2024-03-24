@@ -3,6 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { createTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Tasks from "../components/Tasks";
+import NoTasks from "../components/NoTasks";
 
 export const theme = createTheme({
   palette: {
@@ -12,6 +13,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: "#7b1fa2",
+      light: "ff0000",
     },
   },
 });
@@ -20,7 +22,7 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="tasksWrapper w-10/12 h-auto flex flex-wrap box-border p-1 m-4 bg-secondary-color rounded-lg  lg:tasksWrapper-lg">
+        <div className="tasksWrapper w-10/12 h-auto flex flex-wrap flex-col box-border p-1 m-4 bg-secondary-color rounded-lg  lg:tasksWrapper-lg">
           <Tasks />
         </div>
       </div>

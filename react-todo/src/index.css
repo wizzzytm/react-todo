@@ -14,6 +14,7 @@
   }
   .tasksWrapper-lg {
     @apply p-4 m-8 w-7/12;
+    box-sizing: border-box;
   }
   .date-picker fieldset {
     @apply border-2 border-contrast-color text-contrast-color;
@@ -22,8 +23,10 @@
     @apply border-contrast-color !important;
   }
   form .input {
-    @apply m-4;
+    @apply mb-4 mt-4 w-full;
+    color: "#9c27b0";
   }
+
   form {
     box-shadow: 0px 0px 30px 0px var(--contrast-color);
   }
@@ -32,5 +35,18 @@
   }
   .add-title {
     text-shadow: 3px 3px 4px rgba(170, 170, 170, 1);
+  }
+  .taskControls {
+    grid-area: right;
+    display: flex;
+    justify-content: flex-end;
+  }
+  @media (max-width: 1024px) {
+    .taskControls {
+      @apply mt-4;
+    }
+  }
+  .noTasks-lg {
+    @apply text-3xl;
   }
 }

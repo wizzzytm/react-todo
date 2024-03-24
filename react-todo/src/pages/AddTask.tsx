@@ -6,6 +6,7 @@ import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 import { Task } from "../types/User";
 import { UserContext } from "../contexts/UserContext";
@@ -52,7 +53,7 @@ export default function AddTask() {
         </Fab>
       </div>
       <div className="flex justify-center">
-        <div className=" w-10/12 h-auto flex flex-col flex-wrap justify-center items-center">
+        <div className="text-center w-10/12 h-auto flex flex-col flex-wrap justify-center items-center">
           <span className="text-white text-6xl mb-8 add-title">
             Add a new task
           </span>
@@ -70,8 +71,9 @@ export default function AddTask() {
             <TextField
               label="Description"
               className="input"
+              multiline
               color="secondary"
-              sx={{ input: { color: "#9c27b0" } }}
+              sx={{ ".MuiInputBase-input": { color: "#9c27b0" } }}
               focused
               name="description"
               value={description}
